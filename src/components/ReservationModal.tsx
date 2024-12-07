@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { format, addWeeks, startOfWeek, differenceInDays } from 'date-fns';
+import { format, addWeeks, startOfWeek } from 'date-fns';
 import { fr } from 'date-fns/locale';
 
 interface ReservationModalProps {
