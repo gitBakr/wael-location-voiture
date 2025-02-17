@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Hero = () => {
   return (
     <div className="relative bg-white overflow-hidden">
@@ -14,12 +16,12 @@ const Hero = () => {
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
-                  <a
-                    href="/cars"
+                  <Link
+                    to="/cars"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 md:py-4 md:text-lg md:px-10"
                   >
                     Voir nos véhicules
-                  </a>
+                  </Link>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
                   <a
