@@ -1,10 +1,16 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ReservationModal from './ReservationModal';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleNavigation = (path: string) => {
+    setIsMenuOpen(false); // Ferme le menu
+    navigate(path);
+  };
 
   return (
     <>
@@ -86,27 +92,42 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="sm:hidden">
             <div className="pt-2 pb-3 space-y-1">
-              <Link to="/" className="bg-primary-50 border-primary-500 text-primary-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+              <div 
+                onClick={() => handleNavigation('/')}
+                className="bg-primary-50 border-primary-500 text-primary-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium cursor-pointer"
+              >
                 Accueil
-              </Link>
-              <Link to="/cars" className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+              </div>
+              <div 
+                onClick={() => handleNavigation('/cars')}
+                className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium cursor-pointer"
+              >
                 Véhicules
-              </Link>
-              <Link to="/services" className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+              </div>
+              <div 
+                onClick={() => handleNavigation('/services')}
+                className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium cursor-pointer"
+              >
                 Services
-              </Link>
-              <Link to="/about" className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+              </div>
+              <div 
+                onClick={() => handleNavigation('/about')}
+                className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium cursor-pointer"
+              >
                 À propos
-              </Link>
-              <Link to="/contact" className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+              </div>
+              <div 
+                onClick={() => handleNavigation('/contact')}
+                className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium cursor-pointer"
+              >
                 Contact
-              </Link>
-              <Link 
-                to="/accounting" 
-                className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+              </div>
+              <div 
+                onClick={() => handleNavigation('/accounting')}
+                className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium cursor-pointer"
               >
                 Comptabilité
-              </Link>
+              </div>
             </div>
           </div>
         )}
