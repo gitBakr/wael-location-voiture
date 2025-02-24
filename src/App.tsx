@@ -6,7 +6,9 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Services from './pages/Services'
 import Cars from './pages/Cars'
+import Accounting from './pages/Accounting'
 import FloatingButtons from './components/FloatingButtons';
+import DriverDetails from './pages/DriverDetails';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/accounting" element={<Accounting />} />
+            <Route path="/accounting/driver/:id" element={<DriverDetails />} />
           </Routes>
         </main>
         <FloatingButtons />

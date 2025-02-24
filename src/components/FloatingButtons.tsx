@@ -1,7 +1,7 @@
 import { FaPhone, FaWhatsapp } from 'react-icons/fa';
 
 const FloatingButtons = () => {
-  const phoneNumber = "33783090815"; // Format international sans le +
+  const phoneNumber = "33667957052"; // Nouveau numéro
   
   return (
     <div className="fixed bottom-6 right-6 flex flex-col gap-4 z-50">

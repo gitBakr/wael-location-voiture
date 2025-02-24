@@ -13,8 +13,8 @@ const Navbar = () => {
           <div className="flex justify-between h-16">
             <div className="flex">
               <Link to="/" className="flex items-center">
-                <span className="text-2xl font-extrabold text-[#FF4C4C]">WAEL</span>
-                <span className="text-2xl font-extrabold ml-2 text-[#25D366]">LE BOSS</span>
+                <span className="text-2xl font-extrabold text-primary-600">Green</span>
+                <span className="text-2xl font-extrabold text-green-600">Cars</span>
               </Link>
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                 <Link
@@ -46,6 +46,12 @@ const Navbar = () => {
                   className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-primary-600 border-b-2 border-transparent hover:border-primary-600"
                 >
                   Contact
+                </Link>
+                <Link
+                  to="/accounting"
+                  className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-primary-600 border-b-2 border-transparent hover:border-primary-600"
+                >
+                  Comptabilité
                 </Link>
               </div>
             </div>
@@ -94,6 +100,12 @@ const Navbar = () => {
               </Link>
               <Link to="/contact" className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
                 Contact
+              </Link>
+              <Link 
+                to="/accounting" 
+                className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+              >
+                Comptabilité
               </Link>
             </div>
           </div>

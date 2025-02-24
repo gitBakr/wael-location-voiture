@@ -12,7 +12,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Contact</h3>
             <ul className="space-y-2 text-gray-600">
-              <li>Téléphone: +33 6 12 34 56 78</li>
+              <li>Téléphone: +33 6 67 95 70 52</li>
               <li>Email: contact@waelleboss.com</li>
               <li>Adresse: Paris, France</li>
             </ul>
