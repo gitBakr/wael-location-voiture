@@ -90,7 +90,10 @@ const ReservationModal = ({ isOpen, onClose, carName, pricePerDay }: Reservation
         total: priceDetails.total,
         contractDate: new Date().toISOString().split('T')[0],
         deposit: 1000,
-        carName: carName
+        carName: carName,
+        employerFee: 0,
+        totalPrice: priceDetails.total,
+        acceptContract: false
       },
       weeklyData: []
     };
