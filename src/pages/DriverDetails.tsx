@@ -87,9 +87,6 @@ VTC Location
         phone: driver.phone,
         email: driver.email
       },
-      vehicle: {
-        name: driver.rentalInfo?.carName || '',
-      },
       prices: {
         basePrice: week.rentalFee,
         tax: Math.round(week.rentalFee * 0.2),

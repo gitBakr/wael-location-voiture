@@ -25,12 +25,6 @@ interface ClientInfo {
   tva?: string;
 }
 
-interface VehicleInfo {
-  name: string;
-  registration?: string;
-  mileage?: number;
-}
-
 interface PriceDetails {
   basePrice: number;
   professionalFees?: number;
