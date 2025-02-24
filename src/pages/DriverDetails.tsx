@@ -19,14 +19,6 @@ const DriverDetails = () => {
   
   const driver = getDrivers().find(d => d.id === id);
 
-  const handleUpdateDriver = (driverId: string, updatedData: Partial<Driver>) => {
-    const updated = updateDriver(driverId, updatedData);
-    if (updated) {
-      // Rafraîchir les données
-      window.location.reload();
-    }
-  };
-
   const handleUpdateData = (driverId: string, weekData: WeeklyData) => {
     const updated = updateDriverData(driverId, weekData);
     if (updated) {

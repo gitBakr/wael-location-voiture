@@ -15,7 +15,7 @@ interface ReservationModalProps {
   carImage?: string;
 }
 
-const ReservationModal = ({ isOpen, onClose, carName, pricePerDay }: ReservationModalProps) => {
+const ReservationModal = ({ isOpen, onClose, carName }: ReservationModalProps) => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',

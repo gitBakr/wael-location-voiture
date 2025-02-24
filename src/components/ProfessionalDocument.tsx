@@ -48,7 +48,6 @@ interface ProfessionalDocumentProps {
   endDate?: Date;
   company: CompanyInfo;
   client: ClientInfo;
-  vehicle: VehicleInfo;
   prices: PriceDetails;
   paymentTerms?: string;
 }
@@ -59,7 +58,6 @@ const ProfessionalDocument = ({
   date,
   company,
   client,
-  vehicle,
   prices,
 }: ProfessionalDocumentProps) => {
   const totalHT = prices.total;
