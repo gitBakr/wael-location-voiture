@@ -5,7 +5,7 @@ const allCars = [
   {
     name: 'Mercedes Classe C',
     image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
-    price: 120,
+    price: 400/7,
     category: 'Berline de luxe',
     seats: 5,
     transmission: 'Automatique'
@@ -13,7 +13,7 @@ const allCars = [
   {
     name: 'BMW Série 3',
     image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
-    price: 110,
+    price: 400/7,
     category: 'Berline sportive',
     seats: 5,
     transmission: 'Automatique'
@@ -21,7 +21,7 @@ const allCars = [
   {
     name: 'Audi A4',
     image: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
-    price: 115,
+    price: 57,
     category: 'Berline premium',
     seats: 5,
     transmission: 'Automatique'
@@ -29,7 +29,7 @@ const allCars = [
   {
     name: 'Tesla Model 3',
     image: 'https://images.unsplash.com/photo-1561580125-028ee3bd62eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
-    price: 130,
+    price: 57,
     category: 'Électrique',
     seats: 5,
     transmission: 'Automatique'
@@ -37,7 +37,7 @@ const allCars = [
   {
     name: 'Range Rover Evoque',
     image: 'https://images.unsplash.com/photo-1551522435-a13afa10f103?ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
-    price: 150,
+    price: 57,
     category: 'SUV',
     seats: 5,
     transmission: 'Automatique'
@@ -45,7 +45,7 @@ const allCars = [
   {
     name: 'Porsche 911',
     image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
-    price: 200,
+    price: 57,
     category: 'Sport',
     seats: 2,
     transmission: 'Automatique'

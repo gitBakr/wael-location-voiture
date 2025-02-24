@@ -4,14 +4,16 @@ import ReservationModal from './ReservationModal';
 interface CarCardProps {
   name: string;
   image: string;
-  price: number;
   category: string;
   seats: number;
   transmission: string;
 }
 
-const CarCard = ({ name, image, price, category, seats, transmission }: CarCardProps) => {
+const CarCard = ({ name, image, category, seats, transmission }: CarCardProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  // Prix journalier fixe à 57€
+  const dailyPrice = 57;
 
   return (
     <>
@@ -49,7 +51,7 @@ const CarCard = ({ name, image, price, category, seats, transmission }: CarCardP
             {transmission}
           </div>
           <div className="mt-4 flex justify-between items-center">
-            <span className="text-xl font-bold text-primary-600">{price}€/jour</span>
+            <p className="text-lg font-bold text-primary-600">{dailyPrice}€<span className="text-sm font-normal">/jour</span></p>
             <button 
               onClick={() => setIsModalOpen(true)}
               className="bg-primary-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-700 transition-colors duration-200"
@@ -64,7 +66,8 @@ const CarCard = ({ name, image, price, category, seats, transmission }: CarCardP
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         carName={name}
-        pricePerDay={price}
+        pricePerDay={dailyPrice}
+        carImage={image}
       />
     </>
   );

@@ -5,7 +5,7 @@ const featuredCars = [
   {
     name: 'Mercedes Classe C',
     image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80',
-    price: 120,
+    price:57,
     category: 'Berline de luxe',
     seats: 5,
     transmission: 'Automatique'

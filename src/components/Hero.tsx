@@ -23,16 +23,6 @@ const Hero = () => {
                     Voir nos véhicules
                   </Link>
                 </div>
-                <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <a
-                    href="https://wa.me/33612345678?text=Bonjour,%20je%20souhaite%20des%20informations%20sur%20la%20location%20de%20véhicules"
-                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary-700 bg-primary-100 hover:bg-primary-200 md:py-4 md:text-lg md:px-10"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Nous contacter
-                  </a>
-                </div>
               </div>
             </div>
           </main>
