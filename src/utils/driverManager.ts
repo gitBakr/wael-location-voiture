@@ -1,4 +1,5 @@
-import { Driver, WeeklyData } from '../types/driver';
+import { Driver } from '../types';
+import { WeeklyData } from '../types/driver';
 
 
 export const addDriver = (newDriver: Omit<Driver, 'id'>): Driver => {

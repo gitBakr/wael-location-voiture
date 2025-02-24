@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Driver, EmploymentStatus, DriverStatus, WeeklyData } from '../types/driver';
+import { Driver, EmploymentStatus, DriverStatus, WeeklyData } from '../types';
 
 interface AddDriverModalProps {
   isOpen: boolean;
@@ -26,7 +26,10 @@ const AddDriverModal = ({ isOpen, onClose, onAdd }: AddDriverModalProps) => {
       total: 635,
       contractDate: new Date().toISOString().split('T')[0],
       deposit: 1000,
-      carName: ''
+      carName: '',
+      employerFee: 0,
+      totalPrice: 0,
+      acceptContract: false
     },
     weeklyData: [] as WeeklyData[]
   });
@@ -44,7 +47,10 @@ const AddDriverModal = ({ isOpen, onClose, onAdd }: AddDriverModalProps) => {
       status: 'pending' as DriverStatus,
       rentalInfo: {
         ...formData.rentalInfo,
-        carName: ''
+        carName: '',
+        employerFee: 0,
+        totalPrice: 0,
+        acceptContract: false
       },
       weeklyData: []
     });

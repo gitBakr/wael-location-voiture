@@ -1,13 +1,14 @@
-import { Driver } from '../types/driver';
+import { Driver } from '../types';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { format, parseISO } from 'date-fns';
 
 interface DriverCardProps {
   driver: Driver;
+  onEdit: () => void;
 }
 
-const DriverCard = ({ driver }: DriverCardProps) => {
+const DriverCard = ({ driver, onEdit }: DriverCardProps) => {
   const navigate = useNavigate();
   const [showContract, setShowContract] = useState(false);
   

@@ -4,7 +4,7 @@ import DriverSearch from '../components/DriverSearch';
 import DriverCard from '../components/DriverCard';
 import AddDriverModal from '../components/AddDriverModal';
 import EditDriverModal from '../components/EditDriverModal';
-import { Driver, DriverStatus } from '../types/driver';
+import { Driver, DriverStatus } from '../types';
 import { toast } from 'react-hot-toast';
 
 const Accounting = () => {
@@ -48,11 +48,6 @@ const Accounting = () => {
     toast.success('Chauffeur ajouté avec succès');
   };
 
-  const handleEditDriver = (driver: Driver) => {
-    setSelectedDriver(driver);
-    setIsEditModalOpen(true);
-  };
-
   const handleUpdateDriver = (driverId: string, updatedData: Partial<Driver>) => {
     const updated = updateDriver(driverId, updatedData);
     if (updated) {
@@ -61,6 +56,11 @@ const Accounting = () => {
     } else {
       toast.error('Erreur lors de la mise à jour');
     }
+  };
+
+  const handleEditDriver = (driver: Driver) => {
+    setSelectedDriver(driver);
+    setIsEditModalOpen(true);
   };
 
   const filteredDrivers = localDrivers.filter(driver => {
@@ -198,6 +198,7 @@ const Accounting = () => {
                   <DriverCard 
                     key={driver.id} 
                     driver={driver}
+                    onEdit={() => handleEditDriver(driver)}
                   />
                 ))}
               </div>
