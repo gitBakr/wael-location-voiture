@@ -3,7 +3,7 @@ import { format, addWeeks, startOfWeek, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import ConfirmationModal from './ConfirmationModal';
 import RentalContract from './RentalContract';
-import { EmploymentStatus, DriverStatus } from '../types/driver';
+import { EmploymentStatus, DriverStatus } from '../types';
 import { addDriver } from '../utils/driverManager';
 import { toast } from 'react-hot-toast';
 
@@ -29,7 +29,19 @@ const ReservationModal = ({ isOpen, onClose, carName, pricePerDay }: Reservation
 
   const [showConfirmation, setShowConfirmation] = useState(false);
 
+  const calculatePrices = (employmentStatus: EmploymentStatus) => {
+    const basePrice = 400;
+    const employmentFee = employmentStatus === 'selfemployed' ? 0 : 115;
+    const tax = Math.round(basePrice * 0.2);
+    const insurance = Math.round(basePrice * 0.1);
+    const total = Math.round(basePrice + employmentFee + tax + insurance);
+
+    return { basePrice, employmentFee, tax, insurance, total };
+  };
+
   if (!isOpen) return null;
+
+  const priceDetails = calculatePrices(formData.employmentStatus);
 
   // Générer les 4 prochaines semaines
   const weeks = Array.from({ length: 4 }).map((_, index) => {
@@ -52,22 +64,6 @@ const ReservationModal = ({ isOpen, onClose, carName, pricePerDay }: Reservation
     }
   };
 
-  const calculatePrices = (employmentStatus: EmploymentStatus, numberOfWeeks: number) => {
-    const basePrice = 400; // Prix hebdomadaire fixe
-    const employmentFee = employmentStatus === 'selfemployed' ? 0 : 115;
-    const tax = Math.round(basePrice * 0.2); // TVA arrondie
-    const insurance = Math.round(basePrice * 0.1); // Assurance arrondie
-    const total = Math.round(basePrice + employmentFee + tax + insurance);
-
-    return {
-      basePrice,
-      employmentFee,
-      tax,
-      insurance,
-      total
-    };
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -85,15 +81,15 @@ const ReservationModal = ({ isOpen, onClose, carName, pricePerDay }: Reservation
         employmentStatus: formData.employmentStatus,
         basePrice: priceDetails.basePrice,
         employmentFee: priceDetails.employmentFee,
+        employerFee: 0,
         tax: priceDetails.tax,
         insurance: priceDetails.insurance,
         total: priceDetails.total,
+        totalPrice: priceDetails.total,
         contractDate: new Date().toISOString().split('T')[0],
         deposit: 1000,
         carName: carName,
-        employerFee: 0,
-        totalPrice: priceDetails.total,
-        acceptContract: false
+        acceptContract: formData.acceptContract
       },
       weeklyData: []
     };
@@ -103,8 +99,6 @@ const ReservationModal = ({ isOpen, onClose, carName, pricePerDay }: Reservation
     
     setShowConfirmation(true);
   };
-
-  const priceDetails = calculatePrices(formData.employmentStatus, formData.numberOfWeeks);
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
