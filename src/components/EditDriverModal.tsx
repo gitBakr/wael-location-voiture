@@ -4,8 +4,9 @@ import { Driver } from '../types/driver';
 interface EditDriverModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onUpdate: (driverId: string, driver: Partial<Driver>) => void;
   driver: Driver;
+  onUpdate: (driverId: string, data: Partial<Driver>) => void;
+  allowWeeklyData?: boolean;
 }
 
 const EditDriverModal = ({ isOpen, onClose, onUpdate, driver }: EditDriverModalProps) => {

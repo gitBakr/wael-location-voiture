@@ -8,6 +8,7 @@ import UpdateDriverData from '../components/UpdateDriverData';
 import { toast } from 'react-hot-toast';
 import ProfessionalDocument from '../components/ProfessionalDocument';
 import jsPDF from 'jspdf';
+import { Driver, WeeklyData } from '../types';
 
 const DriverDetails = () => {
   const { id } = useParams();
