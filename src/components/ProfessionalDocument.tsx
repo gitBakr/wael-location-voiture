@@ -1,6 +1,4 @@
-import { Page, Text, View, Document, StyleSheet, PDFViewer, Image } from '@react-pdf/renderer';
 import { format, addDays } from 'date-fns';
-import { fr } from 'date-fns/locale';
 
 interface CompanyInfo {
   name: string;
@@ -54,82 +52,6 @@ interface ProfessionalDocumentProps {
   prices: PriceDetails;
   paymentTerms?: string;
 }
-
-const styles = StyleSheet.create({
-  page: {
-    padding: 30,
-    fontFamily: 'Helvetica',
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 30,
-  },
-  logo: {
-    width: 150,
-    height: 50,
-  },
-  companyInfo: {
-    fontSize: 10,
-    textAlign: 'right',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  section: {
-    marginBottom: 20,
-  },
-  sectionTitle: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    marginBottom: 10,
-    backgroundColor: '#f0f0f0',
-    padding: 5,
-  },
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 5,
-  },
-  table: {
-    marginTop: 10,
-  },
-  tableHeader: {
-    flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: '#000',
-    paddingBottom: 5,
-    marginBottom: 5,
-    fontWeight: 'bold',
-  },
-  tableRow: {
-    flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
-    paddingVertical: 5,
-  },
-  col1: { width: '60%' },
-  col2: { width: '20%', textAlign: 'right' },
-  col3: { width: '20%', textAlign: 'right' },
-  total: {
-    marginTop: 20,
-    borderTopWidth: 1,
-    borderTopColor: '#000',
-    paddingTop: 10,
-  },
-  footer: {
-    position: 'absolute',
-    bottom: 30,
-    left: 30,
-    right: 30,
-    fontSize: 8,
-    textAlign: 'center',
-    color: '#666',
-  },
-});
 
 const ProfessionalDocument = ({
   type,
