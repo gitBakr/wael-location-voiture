@@ -20,10 +20,13 @@ const Accounting = () => {
   const [selectedDriver, setSelectedDriver] = useState<Driver | null>(null);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [statusFilter, setStatusFilter] = useState<DriverStatus | 'all'>('all');
-  const [showDrivers, setShowDrivers] = useState(false);
+  const [showDrivers, setShowDrivers] = useState(true);
 
   useEffect(() => {
-    setLocalDrivers(getDrivers());
+    // Charger les chauffeurs au montage du composant
+    const drivers = getDrivers();
+    setLocalDrivers(drivers);
+    setShowDrivers(true); // Forcer l'affichage
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -185,24 +188,18 @@ const Accounting = () => {
 
         {/* Liste des chauffeurs */}
         <div className="mt-4 sm:mt-6">
-          {!showDrivers ? (
-            <div className="text-center">
-              <p className="text-gray-500">Cliquez sur "Voir tous les chauffeurs" pour afficher la liste</p>
-            </div>
+          {filteredDrivers.length === 0 ? (
+            <p className="text-center text-gray-500">Aucun chauffeur trouvé</p>
           ) : (
-            filteredDrivers.length === 0 ? (
-              <p className="text-center text-gray-500">Aucun chauffeur trouvé</p>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-6">
-                {filteredDrivers.map(driver => (
-                  <DriverCard 
-                    key={driver.id} 
-                    driver={driver}
-                    onEdit={() => handleEditDriver(driver)}
-                  />
-                ))}
-              </div>
-            )
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-6">
+              {filteredDrivers.map(driver => (
+                <DriverCard 
+                  key={driver.id} 
+                  driver={driver}
+                  onEdit={() => handleEditDriver(driver)}
+                />
+              ))}
+            </div>
           )}
         </div>
 
