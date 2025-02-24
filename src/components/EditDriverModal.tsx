@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Driver } from '../types/driver';
+import { Driver } from '../types';
 
 interface EditDriverModalProps {
   isOpen: boolean;
@@ -87,13 +87,24 @@ const EditDriverModal = ({ isOpen, onClose, onUpdate, driver }: EditDriverModalP
         
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Nom complet</label>
+            <label className="block text-sm font-medium text-gray-700">Prénom</label>
             <input
               type="text"
               required
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              value={formData.firstName}
+              onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Nom</label>
+            <input
+              type="text"
+              required
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+              value={formData.lastName}
+              onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
             />
           </div>
 
@@ -125,8 +136,11 @@ const EditDriverModal = ({ isOpen, onClose, onUpdate, driver }: EditDriverModalP
               type="text"
               required
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
-              value={formData.carAssigned}
-              onChange={(e) => setFormData({ ...formData, carAssigned: e.target.value })}
+              value={formData.rentalInfo?.carName || ''}
+              onChange={(e) => setFormData({
+                ...formData,
+                rentalInfo: { ...formData.rentalInfo, carName: e.target.value }
+              })}
             />
           </div>
 
